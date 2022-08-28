@@ -118,7 +118,7 @@ def sport():
     n = 0
     while True:
         n +=1
-        print(f'{n}-й день: {a}')
+        print('%d-й день: %.02f' % (n, a))
         if a>=b:
             print(f'Ответ: на {n} день спортсмен достиг результата — не менее {b} км')
             return
