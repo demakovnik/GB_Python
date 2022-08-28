@@ -55,10 +55,10 @@ def time_convert():
 # 3. Узнайте у пользователя число n. Найдите сумму чисел n + nn + nnn. Например, пользователь ввёл число 3.
 # Считаем 3 + 33 + 333 = 369.
 def digits_player():
-    n = int(input('Введите число: '))
-    first = int(str(n))
-    second = int(str(n)+str(n))
-    third = int(str(n) + str(n) + str(n))
+    n = input('Введите число: ')
+    first = int(n)
+    second = int(n+n)
+    third = int(n + n + n)
     print(first+second+third)
 
 # 4. Пользователь вводит целое положительное число. Найдите самую большую цифру в числе. Для решения используйте цикл
@@ -68,6 +68,9 @@ def find_max_digit():
     max = 0
     while n > 0:
         c = int(n % 10)
+        if c == 9:
+            max = c
+            break
         if max < c:
             max = c
         n //= 10
