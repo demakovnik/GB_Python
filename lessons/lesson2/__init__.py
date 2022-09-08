@@ -56,4 +56,13 @@ def create_list():
 # использовать функцию input().
 
 def swap_elements():
-    li = [12, 34, 'Hello', 'World', [True, False]]
+    li = [12, 34, 'Hello', 'World']
+    print(li)
+    length = len(li)
+    k = length
+    if length % 2 != 0:
+        k = k - 1
+    for i in range(0, k, 2):
+        li[i], li[i+1] = li[i+1], li[i]
+    print(li)
+
