@@ -78,20 +78,9 @@ def dict_year():
             break
 def list_year():
     month = int(input("Введите месяц: "))
-    months = [(1, 2, 12), (3, 4, 5), (6, 7, 8), (9, 10, 11)]
+    months = [(1, 2, 12, 'winter'), (3, 4, 5, 'spring'), (6, 7, 8, 'summer'), (9, 10, 11, 'autumn')]
     for i, j in enumerate(months):
         if j.__contains__(month):
-            if i == 0:
-                print('winter')
-                break
-            elif i == 1:
-                print('spring')
-                break
-            elif i == 2:
-                print('summer')
-                break
-            elif i == 3:
-                print('autumn')
-                break
+            print(months[i][3])
 
 
