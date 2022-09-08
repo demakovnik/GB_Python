@@ -3,4 +3,4 @@ from lessons.lesson2 import *
 
 if __name__ == '__main__':
 
-     swap_elements()
+     list_year()
