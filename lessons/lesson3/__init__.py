@@ -125,8 +125,8 @@ def summa():
 # 6. Реализовать функцию int_func(), принимающую слова из маленьких латинских букв и возвращающую их же, но с прописной
 # первой буквой. Например, print(int_func(‘text’)) -> Text.
 
-def int_func(*args):
-    return list(map(lambda p1: str(p1).title(), args))
+def int_func(s):
+    return str(s).title()
 
 # 7. Продолжить работу над заданием. В программу должна попадать строка из слов, разделённых пробелом. Каждое слово
 # состоит из латинских букв в нижнем регистре. Нужно сделать вывод исходной строки, но каждое слово должно начинаться с
@@ -134,5 +134,5 @@ def int_func(*args):
 
 def int_func2(s):
     li = list(map(lambda p1: int_func(p1), str(s).split()))
-    return ' '.join(reduce(list.__add__, li))
+    return ' '.join(li)
 
