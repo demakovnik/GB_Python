@@ -48,13 +48,12 @@ def product():
 
 def int_generator(start, stop):
     generator = (el for el in count(start))
-    res = []
     while True:
         k = generator.__next__()
         if k <= stop:
-            res.append(k)
+            print(k)
         else:
-            return res
+            return
 
 # 7. Реализовать генератор с помощью функции с ключевым словом yield, создающим очередное значение. При вызове функции
 # должен создаваться объект-генератор. Функция вызывается следующим образом: for el in fact(n). Она отвечает за получение
