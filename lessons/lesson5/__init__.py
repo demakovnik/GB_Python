@@ -147,6 +147,10 @@ def firms_calculate():
                 name, ownership, proceeds, costs = firm.split()
                 firms[name] = int(proceeds) - int(costs)
         average_profit = {'average_profit': mean([v for k, v in firms.items() if v >= 0])}
+
+        if not os.path.exists("lessons/output_files"):
+            os.mkdir("lessons/output_files")
+
         with open("lessons/output_files/firms.txt", "w") as write_f:
             json.dump([firms, average_profit], write_f)
     except IOError:
