@@ -14,7 +14,20 @@ def strings_to_file():
 
 
 # 2. Создать текстовый файл (не программно), сохранить в нём несколько строк, выполнить подсчёт строк и слов в каждой строке.
+def readingFile():
+    try:
+        with open("lessons/input_files/test.txt") as f_obj:
+            strings = f_obj.readlines()
+            count_string = len(strings)
+            words = {}
+            i = 1
+            print(f'Количество строк: {count_string}')
+            for str in strings:
+                print(f'Количество слов в {i} строке: {len(str.split())}')
+                i += 1
 
+    except IOError:
+        print("Ошибка ввода/вывода")
 
 """
 3. Создать текстовый файл (не программно). Построчно записать фамилии сотрудников и величину их окладов (не менее 10 строк).
