@@ -1,5 +1,7 @@
 import os
 from statistics import mean
+
+
 # 1. Создать программный файл в текстовом формате, записать в него построчно данные, вводимые пользователем. Об окончании
 # ввода данных будет свидетельствовать пустая строка.
 
@@ -9,7 +11,7 @@ def strings_to_file():
     with open("lessons/output_files/first_task.txt", "w") as f_obj:
         while True:
             str = input()
-            if str=="":
+            if str == "":
                 break
             print(str, file=f_obj)
 
@@ -42,7 +44,7 @@ def readingFile():
 def less_than_20():
     try:
         with open("lessons/input_files/salary.txt") as f_obj:
-            dict={}
+            dict = {}
             for string in f_obj.readlines():
                 arr = string.split()
                 surname, salary = arr[0], float(arr[1])
@@ -55,14 +57,37 @@ def less_than_20():
         print("Ошибка ввода/вывода")
 
 
+# 4. Создать (не программно) текстовый файл со следующим содержимым:
+# One — 1
+# Two — 2
+# Three — 3
+# Four — 4
+# Напишите программу, открывающую файл на чтение и считывающую построчно данные. При этом английские числительные должны
+# заменяться на русские. Новый блок строк должен записываться в новый текстовый файл.
+
+def numerals():
+    nums = {}
+    splitter = ' — '
+    russian = ('Один', 'Два', 'Три', 'Четыре')
+    try:
+        with open("lessons/input_files/numerals.txt") as f_obj:
+            for string in f_obj.readlines():
+                arr = string.split(splitter)
+                numeral, meaning = arr[0], int(arr[1])
+                nums[meaning] = russian[meaning - 1]
+        if not os.path.exists("lessons/output_files"):
+            os.mkdir("lessons/output_files")
+
+        with open("lessons/output_files/numerals.txt", "w") as f_obj:
+            for string in [f'{v}{splitter}{k}' for k, v in nums.items()]:
+                print(string, file=f_obj)
+    except IOError:
+        print("Ошибка ввода/вывода")
+    except IndexError:
+        print("Ошибка ввода/вывода")
+
+
 """
-4. Создать (не программно) текстовый файл со следующим содержимым:
-One — 1
-Two — 2
-Three — 3
-Four — 4
-Напишите программу, открывающую файл на чтение и считывающую построчно данные. При этом английские числительные должны
-заменяться на русские. Новый блок строк должен записываться в новый текстовый файл.
 5. Создать (программно) текстовый файл, записать в него программно набор чисел, разделённых пробелами. Программа должна
 подсчитывать сумму чисел в файле и выводить её на экран.
 6 (Дополнительно). Сформировать (не программно) текстовый файл. В нём каждая строка должна описывать учебный предмет и
