@@ -1,6 +1,7 @@
 import os
 from statistics import mean
 import re
+import json
 
 
 # 1. Создать программный файл в текстовом формате, записать в него построчно данные, вводимые пользователем. Об окончании
@@ -125,7 +126,6 @@ def lessons():
         print("Ошибка ввода/вывода")
 
 
-
 # 7 (Дополнительно) . Создать вручную и заполнить несколькими строками текстовый файл, в котором каждая строка будет
 # содержать данные о фирме: название, форма собственности, выручка, издержки.
 # Пример строки файла: firm_1 ООО 10000 5000.
@@ -139,7 +139,17 @@ def lessons():
 # Итоговый список сохранить в виде json-объекта в соответствующий файл.
 # Пример json-объекта:
 # [{"firm_1": 5000, "firm_2": 3000, "firm_3": 1000}, {"average_profit": 2000}]
-
-
-
-
+def firms_calculate():
+    firms = {}
+    try:
+        with open("lessons/input_files/firms.txt") as f_obj:
+            for firm in f_obj.readlines():
+                name, ownership, proceeds, costs = firm.split()
+                firms[name] = int(proceeds) - int(costs)
+        average_profit = {'average_profit': mean([v for k, v in firms.items() if v >= 0])}
+        with open("lessons/output_files/firms.txt", "w") as write_f:
+            json.dump([firms, average_profit], write_f)
+    except IOError:
+        print("Ошибка ввода/вывода")
+    except IndexError:
+        print("Ошибка ввода/вывода")
