@@ -3,7 +3,7 @@
 # ввода данных будет свидетельствовать пустая строка.
 
 def strings_to_file():
-    with open("first_task.txt", "w") as f_obj:
+    with open("lessons/output_files/first_task.txt", "w") as f_obj:
         while True:
             str = input()
             if str=="":
