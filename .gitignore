@@ -3,5 +3,4 @@ bin
 lib
 .idea/
 __pycache__/
-input_files/
-output_files/*.*
+output_files/
