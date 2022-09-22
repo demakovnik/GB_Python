@@ -3,3 +3,4 @@ bin
 lib
 .idea/
 __pycache__/
+output_files/
