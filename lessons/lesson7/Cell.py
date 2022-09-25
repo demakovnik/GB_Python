@@ -37,7 +37,7 @@ class Cell:
                 raise ValueError('Value less than zero')
             return Cell(self.__cells - other.__cells)
         except ValueError as e:
-            print(e)
+            return e
 
     def __mul__(self, other):
         return Cell(self.__cells * other.__cells)
@@ -46,7 +46,7 @@ class Cell:
         try:
             return Cell(int(self.__cells / other.__cells))
         except ZeroDivisionError as e:
-            print(e)
+            return e
 
     def __str__(self):
         return str(self.__cells)
