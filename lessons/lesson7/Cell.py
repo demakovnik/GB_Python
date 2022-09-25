@@ -56,7 +56,7 @@ class Cell:
         remainder = self.__cells % number
         s = ""
         for i in range(0, full_strings):
-            s += '*'*number + '\n'
+            s += '*' * number + '\n'
         s += remainder * '*'
 
         return s
