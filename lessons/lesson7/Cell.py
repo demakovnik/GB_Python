@@ -45,7 +45,7 @@ class Cell:
     def __truediv__(self, other):
         try:
             return Cell(int(self.__cells / other.__cells))
-        except ValueError as e:
+        except ZeroDivisionError as e:
             print(e)
 
     def __str__(self):
